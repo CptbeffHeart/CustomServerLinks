@@ -1,17 +1,30 @@
 package com.expectale.customserverlinks;
 
+import com.expectale.customserverlinks.serverlinks.ServerLinkManager;
+import com.expectale.customserverlinks.listener.ServerLinkListener;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Logger;
 
 public final class CustomServerLinks extends JavaPlugin {
 
+    public static CustomServerLinks INSTANCE;
+    public static Logger LOGGER;
+    
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
+        INSTANCE = this;
+        LOGGER = getLogger();
+        
+        saveDefaultConfig();
+        getServer().getPluginManager().registerEvents(new ServerLinkListener(), this);
+        ServerLinkManager.reloadLinks();
+        
+        LOGGER.info("CustomServerLinks enabled");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        LOGGER.info("Disabling CustomServerLinks");
     }
 }
