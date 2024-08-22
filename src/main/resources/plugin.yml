@@ -2,3 +2,4 @@ name: CustomServerLinks
 version: '${version}'
 main: com.expectale.customserverlinks.CustomServerLinks
 api-version: '1.21'
+author: CptBeffHeart
