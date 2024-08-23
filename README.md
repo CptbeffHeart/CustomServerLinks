@@ -16,13 +16,13 @@
   </a>
 </p>
 
-## Overview
+# Overview
 CustomServerLinks Plugin is a simple yet powerful tool that allows servers to send custom links to players. With this plugin, you can enhance player interaction by providing easy access to external resources such as documentation, tutorials, or community links.
 
-## Usage
+# Usage
 You can add "named links" or "typed links".<br>
 
-### Named links
+## Named links
 Named links `name` is customizable and support colors.<br>
 Named link exemple :
 ```
@@ -31,7 +31,7 @@ Site:
   link: "https://domain.com/"
 ```
 
-### Typed links
+## Typed links
 Typed links `type` is defined by mojang.<br>
 Generic-use link labels have native translations.<br>
 `REPORT_BUG` links which may appear on disconnect/crash screens.<br>
