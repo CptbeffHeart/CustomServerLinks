@@ -10,6 +10,12 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/CptbeffHeart/DeepStorage/releases">
+    <img src="https://github.com/user-attachments/assets/7620a412-97cc-47ed-9b37-c4641a3f9243">
+  </a>
+</p>
+
 ## Overview
 CustomServerLinks Plugin is a simple yet powerful tool that allows servers to send custom links to players. With this plugin, you can enhance player interaction by providing easy access to external resources such as documentation, tutorials, or community links.
 
@@ -35,7 +41,8 @@ Site:
   type: "WEBSITE"
   link: "https://domain.com/"
 ```
-Available types : `REPORT_BUG`, `COMMUNITY_GUIDELINES`, `SUPPORT`, `STATUS`, `FEEDBACK`, `COMMUNITY`, `WEBSITE`, `FORUMS`, `NEWS`, `ANNOUNCEMENTS`.
+Available types : `REPORT_BUG`, `COMMUNITY_GUIDELINES`, `SUPPORT`, `STATUS`, `FEEDBACK`, `COMMUNITY`, `WEBSITE`, `FORUMS`, `NEWS`, `ANNOUNCEMENTS`.<br>
+[Default config.yml](https://github.com/CptbeffHeart/CustomServerLinks/blob/master/src/main/resources/config.yml)
 | Translation key                         | Name                  |
 |-----------------------------------------|-----------------------|
 | known_server_link.announcements         | Announcements         |
