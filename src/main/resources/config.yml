@@ -1,0 +1,18 @@
+#Typed Server Link
+#There are some generic-use link labels that have translations.
+#Bug report links which may appear on disconnect/crash screens.
+#Available types : REPORT_BUG, COMMUNITY_GUIDELINES, SUPPORT, STATUS, FEEDBACK, COMMUNITY, WEBSITE, FORUMS,
+#NEWS, ANNOUNCEMENTS.
+Bug:
+  type: "REPORT_BUG"
+  link: "https://domain.com/"
+
+#Named Server Link
+#You can also name the link as you want.
+#Colors are also supported
+Site:
+  name: "§3Site"
+  link: "https://domain.com/"
+Discord:
+  name: "§aDiscord"
+  link: "https://discord.gg/yourdiscord"
