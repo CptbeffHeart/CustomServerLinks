@@ -55,7 +55,7 @@ public class ServerLinkManager {
             if (type != null && isValidType(type)) {
                 addLink(new TypedServerLink(ServerLinks.Type.valueOf(type.toUpperCase()), url));
             } else if (name != null) {
-                addLink(new NamedServerLink(name, url));
+                addLink(new NamedServerLink(name.replace("&", "§"), url));
             } else {
                 CustomServerLinks.LOGGER.warning("Could not load link for: " + key);
             }
