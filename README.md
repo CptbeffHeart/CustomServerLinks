@@ -11,9 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CptbeffHeart/DeepStorage/releases">
-    <img src="https://github.com/user-attachments/assets/7620a412-97cc-47ed-9b37-c4641a3f9243">
-  </a>
+  <img src="https://github.com/user-attachments/assets/7620a412-97cc-47ed-9b37-c4641a3f9243">
 </p>
 
 # Overview
