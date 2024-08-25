@@ -1,5 +1,6 @@
 package com.expectale.customserverlinks;
 
+import com.expectale.customserverlinks.command.ServerLinksReloadCommand;
 import com.expectale.customserverlinks.serverlinks.ServerLinkManager;
 import com.expectale.customserverlinks.listener.ServerLinkListener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,6 +19,7 @@ public final class CustomServerLinks extends JavaPlugin {
         
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new ServerLinkListener(), this);
+        getCommand("customserverlinks").setExecutor(new ServerLinksReloadCommand());
         ServerLinkManager.reloadLinks();
         
         LOGGER.info("CustomServerLinks enabled");

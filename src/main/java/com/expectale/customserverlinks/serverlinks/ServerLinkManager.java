@@ -27,6 +27,7 @@ public class ServerLinkManager {
     }
     
     public static void reloadLinks() {
+        LINKS.clear();
         FileConfiguration config = CustomServerLinks.INSTANCE.getConfig();
         for (String key : config.getKeys(false)) {
             
