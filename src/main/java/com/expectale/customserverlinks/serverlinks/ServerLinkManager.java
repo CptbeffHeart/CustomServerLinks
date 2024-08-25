@@ -1,34 +1,20 @@
 package com.expectale.customserverlinks.serverlinks;
 
 import com.expectale.customserverlinks.CustomServerLinks;
-import com.expectale.customserverlinks.serverlinks.link.AbstractServerLink;
-import com.expectale.customserverlinks.serverlinks.link.NamedServerLink;
-import com.expectale.customserverlinks.serverlinks.link.TypedServerLink;
 import org.bukkit.ServerLinks;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class ServerLinkManager {
     
-    private static final List<AbstractServerLink> LINKS = new ArrayList<>();
-    
-    public static void addLink(AbstractServerLink link) {
-        LINKS.add(link);
-    }
-    
-    public static List<AbstractServerLink> getLinks() {
-        return new ArrayList<>(LINKS);
-    }
-    
     public static void reloadLinks() {
-        LINKS.clear();
-        FileConfiguration config = CustomServerLinks.INSTANCE.getConfig();
+        clearServerLinks();
+        CustomServerLinks instance = CustomServerLinks.INSTANCE;
+        FileConfiguration config = instance.getConfig();
         for (String key : config.getKeys(false)) {
             
             ConfigurationSection section = config.getConfigurationSection(key);
@@ -53,10 +39,11 @@ public class ServerLinkManager {
                 continue;
             }
             
+            ServerLinks serverLinks = instance.getServer().getServerLinks();
             if (type != null && isValidType(type)) {
-                addLink(new TypedServerLink(ServerLinks.Type.valueOf(type.toUpperCase()), url));
+                serverLinks.addLink(ServerLinks.Type.valueOf(type.toUpperCase()), url);
             } else if (name != null) {
-                addLink(new NamedServerLink(name.replace("&", "§"), url));
+                serverLinks.addLink(name.replace("&", "§"), url);
             } else {
                 CustomServerLinks.LOGGER.warning("Could not load link for: " + key);
             }
@@ -69,5 +56,10 @@ public class ServerLinkManager {
         return Arrays.stream(ServerLinks.Type.values())
             .map(Enum::name)
             .anyMatch(enumName -> enumName.equalsIgnoreCase(value.toUpperCase()));
+    }
+    
+    public static void clearServerLinks() {
+        ServerLinks serverLinks = CustomServerLinks.INSTANCE.getServer().getServerLinks();
+        serverLinks.getLinks().forEach(serverLinks::removeLink);
     }
 }
