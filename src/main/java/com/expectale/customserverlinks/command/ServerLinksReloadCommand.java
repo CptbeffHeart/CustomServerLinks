@@ -2,7 +2,6 @@ package com.expectale.customserverlinks.command;
 
 import com.expectale.customserverlinks.CustomServerLinks;
 import com.expectale.customserverlinks.serverlinks.ServerLinkManager;
-import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -18,7 +17,7 @@ public class ServerLinksReloadCommand implements TabExecutor {
         if (args.length == 0 || !args[0].equalsIgnoreCase("reload")) return false;
         CustomServerLinks.INSTANCE.reloadConfig();
         ServerLinkManager.reloadLinks();
-        sender.sendMessage(Component.text("§a[!] CustomServerLinks config have been reloaded"));
+        sender.sendMessage("§a[!] CustomServerLinks config have been reloaded");
         return true;
     }
     
