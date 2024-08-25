@@ -2,7 +2,9 @@ package com.expectale.customserverlinks;
 
 import com.expectale.customserverlinks.command.ServerLinksReloadCommand;
 import com.expectale.customserverlinks.serverlinks.ServerLinkManager;
+import org.bukkit.ServerLinks;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.logging.Logger;
 
@@ -26,5 +28,9 @@ public final class CustomServerLinks extends JavaPlugin {
     @Override
     public void onDisable() {
         LOGGER.info("Disabling CustomServerLinks");
+    }
+    
+    public @NotNull ServerLinks getLinks() {
+        return this.getServer().getServerLinks();
     }
 }

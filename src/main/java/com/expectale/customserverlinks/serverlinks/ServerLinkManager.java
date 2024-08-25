@@ -1,6 +1,7 @@
 package com.expectale.customserverlinks.serverlinks;
 
 import com.expectale.customserverlinks.CustomServerLinks;
+import org.bukkit.Bukkit;
 import org.bukkit.ServerLinks;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,8 +13,9 @@ import java.util.Arrays;
 public class ServerLinkManager {
     
     public static void reloadLinks() {
-        clearServerLinks();
         CustomServerLinks instance = CustomServerLinks.INSTANCE;
+        clearServerLinks();
+        instance.reloadConfig();
         FileConfiguration config = instance.getConfig();
         for (String key : config.getKeys(false)) {
             
@@ -49,6 +51,8 @@ public class ServerLinkManager {
             }
             
         }
+        
+        Bukkit.getOnlinePlayers().forEach(player -> player.sendLinks(instance.getLinks()));
         
     }
     
