@@ -3,3 +3,10 @@ version: '${version}'
 main: com.expectale.customserverlinks.CustomServerLinks
 api-version: '1.21'
 author: CptBeffHeart
+
+commands:
+  customserverlinks:
+    description: CustomServerLinks command
+    aliases: [ "cslink", "cslinks" ]
+    usage: /cslink reload
+    permission: "cslink.command"
